@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Personal Assistant</title>
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="main md:flex">
+          <nav class="side-nav">
+               <div class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
+                    <button 
+                         class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+                         type="button"
+                         onclick="toggleNavbar('example-collapse-sidebar')"
+                    >
+                         <i class="fas fa-bars"></i>
+                    </button>
+
+                    <a
+                         class="hidden md:visible md:block md:pb-2 text-gray-500 mr-0 text-sm uppercase font-bold p-4 px-0"
+                         href="javascript:void(0)"
+                    >
+                         Personal Assistant
+                    </a>
+
+                    <div class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded hidden" id="example-collapse-sidebar">
+                         <div class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-gray-300">
+                              <div class="flex flex-wrap">
+                                   <div class="w-6/12">
+                                        <a class="md:block text-left md:pb-2 text-gray-500 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0" href="javascript:void(0)">
+                                             Personal Assistant
+                                        </a>
+                                   </div>
+
+                                   <div class="w-6/12 flex justify-end">
+                                        <button
+                                             type="button"
+                                             class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-lg leading-none bg-transparent rounded border border-solid border-transparent"
+                                             onclick="toggleNavbar('example-collapse-sidebar')"
+                                        >
+                                             <i class="fas fa-times"></i>
+                                        </button>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <ul class="categories md:flex-col md:min-w-full flex flex-col list-none">
+                              <li class="myday category">
+                                   <a
+                                        class="active text-gray-600 hover:text-yellow-400 text-sm py-3 font-semibold block"
+                                        href="#/dashboard"
+                                   >
+                                        <i class="fas fa-sun opacity-75 mr-2 text-sm"></i>
+                                        My day
+                                   </a>
+                              </li>
+
+                              <li class="planned category">
+                                   <a
+                                        class="text-gray-600 hover:text-yellow-400 text-sm py-3 font-semibold block"
+                                        href="#/dashboard"
+                                   >
+                                        <i class="far fa-calendar-alt opacity-75 mr-2 text-sm"></i>
+                                        Planned
+                                   </a>
+                              </li>
+
+                              <hr class="text-gray-500 my-4">
+
+                              <!-- <li class="movies-to-watch category">
+                                   <a
+                                        class="text-gray-600 hover:text-yellow-400 text-sm py-3 font-semibold block"
+                                        href="#/dashboard"
+                                   >
+                                        <i class="fas fa-list-ul opacity-75 mr-2 text-sm"></i>
+                                        Movies to watch
+                                   </a>
+                              </li>
+
+                              <li class="shopping category">
+                                   <a
+                                        class="text-gray-600 hover:text-yellow-400 text-sm py-3 font-semibold block"
+                                        href="#/dashboard"
+                                   >
+                                        <i class="fas fa-list-ul opacity-75 mr-2 text-sm"></i>
+                                        Shopping
+                                   </a>
+                              </li> -->
+                         </ul>
+
+                         <form class="add-list-form hidden">
+                              <input type="text" class="border-2 rounded-md text-gray-600 font-medium border-gray-400 text-sm p-1 focus:outline-none">
+                         </form>
+
+                         <button class="add-list-button text-left">
+                              <a
+                                   class="text-gray-600 hover:text-yellow-400 text-sm py-3 font-medium block"
+                                   href="#/dashboard"
+                              >
+                                   <i class="fas fa-plus opacity-75 mr-2 text-sm"></i>
+                                   New list
+                              </a>
+                         </button>
+                    </div>
+               </div>
+          </nav>
+
+          <div class="section-container">
+               <div id="myday">
+                    <h2 class="text-lg font-semibold border-l-8 border-yellow-300 pl-4 rounded-md shadow-md bg-yellow-50 py-3">
+                         My day
+                    </h2>
+     
+                    <ul class="text-sm mt-8 mx-2">
+                         <!-- <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p class="float-left">laundry</p>
+                                   <p class="float-right">02:00 pm</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+     
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p class="float-left">feed my dog</p>
+                                   <p class="float-right">04:00 pm</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li> -->
+     
+                         <li class="pb-6 hidden">
+                              <button class="cancel-task-button w-1/12 text-center focus:outline-none">
+                                   <i class="fas fa-times"></i>
+                              </button>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <form class="add-task-form">
+                                        <input type="text" class="float-left border-2 rounded-md border-gray-400 pl-1 focus:outline-none" placeholder="description"> 
+                    
+                                        <input type="time" class="float-right border-2 rounded-md border-gray-400 pl-1 focus:outline-none"> 
+                                   </form>
+                              </div>
+     
+                              <button class="submit-task-button w-1/12 text-center focus:outline-none">
+                                   <i class="fas fa-check"></i>
+                              </button>
+                         </li>
+                    </ul>
+     
+                    <button class="add-task-button text-sm text-gray-700 mx-2 hover:text-yellow-500 focus:outline-none">
+                         <i class="fas fa-plus text-xs mr-1"></i>
+                         Add task
+                    </button>
+               </div>
+     
+               <div id="planned" class="hidden">
+                    <h2 class="text-lg font-semibold border-l-8 border-yellow-300 pl-4 rounded-md shadow-md bg-yellow-50 py-3">
+                         Planned
+                    </h2>
+     
+                    <ul class="text-sm mt-8 mx-2">
+                         <!-- <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p class="float-left">meeting with the team</p>
+                                   <p class="float-right">Jan 12, 2021</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+     
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p class="float-left">interview</p>
+                                   <p class="float-right">Jan 15, 2021</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li> -->
+
+                         <li class="pb-6 hidden">
+                              <button class="cancel-schedule-button w-1/12 text-center focus:outline-none">
+                                   <i class="fas fa-times"></i>
+                              </button>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <form class="add-schedule-form">
+                                        <input type="text" class="float-left border-2 rounded-md border-gray-400 pl-1 focus:outline-none" placeholder="description"> 
+                    
+                                        <input type="date" class="float-right border-2 rounded-md border-gray-400 pl-1 focus:outline-none"> 
+                                   </form>
+                              </div>
+     
+                              <button class="submit-schedule-button w-1/12 text-center focus:outline-none">
+                                   <i class="fas fa-check"></i>
+                              </button>
+                         </li>
+                    </ul>
+     
+                    <button class="add-schedule-button text-sm text-gray-700 mx-2 hover:text-yellow-500 focus:outline-none">
+                         <i class="fas fa-plus text-xs mr-1"></i>
+                         Add schedule
+                    </button>
+               </div>
+               
+               <!-- <div id="movies-to-watch" class="hidden ">
+                    <h2 class="text-lg font-semibold border-l-8 border-yellow-300 pl-4 rounded-md shadow-md bg-yellow-50 py-3">
+                         Movies to watch
+                    </h2>
+     
+                    <ul class="text-sm mt-8 mx-2">
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p>Her</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+     
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p>Lost in translation</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+                    </ul>
+     
+                    <button class="add-item-button text-sm text-gray-700 mx-2 hover:text-yellow-500 focus:outline-none">
+                         <i class="fas fa-plus text-xs mr-1"></i>
+                         Add item
+                    </button>
+
+                    <div class="mt-16 flex justify-center">
+                         <button class="delete-list-button bg-red-100 text-sm text-red-500 border border-red-400 block w-28 font-medium p-1 rounded-md focus:outline-none">
+                              Delete this list
+                         </button>
+                    </div>
+               </div> -->
+     
+               <!-- <div id="shopping" class="hidden ">
+                    <h2 class="text-lg font-semibold border-l-8 border-yellow-300 pl-4 rounded-md shadow-md bg-yellow-50 py-3">
+                         Shopping
+                    </h2>
+     
+                    <ul class="text-sm mt-8 mx-2">
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p>Ukulele</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+     
+                         <li class="flex pb-6">
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-check-circle cursor-pointer"></i>
+                              </div>
+     
+                              <div class="w-10/12 md:w-10/12">
+                                   <p>Socks</p>
+                              </div>
+     
+                              <div class="w-1/12 text-center">
+                                   <i class="far fa-trash-alt cursor-pointer"></i>
+                              </div>
+                         </li>
+                    </ul>
+     
+                    <button class="add-item-button text-sm text-gray-700 mx-2 hover:text-yellow-500 focus:outline-none">
+                         <i class="fas fa-plus text-xs mr-1"></i>
+                         Add item
+                    </button>
+
+                    <div class="mt-16 flex justify-center">
+                         <button class="delete-list-button bg-red-100 text-sm text-red-500 border border-red-400 block w-28 font-medium p-1 rounded-md focus:outline-none">
+                              Delete this list
+                         </button>
+                    </div>
+               </div> -->
+          </div>
+          
+          <div class="dialog hidden fixed z-10 inset-0 overflow-y-auto">
+               <div class="flex justify-center pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                    <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                    </div>
+
+                    <div class="inline-block align-center bg-white rounded-lg text-center overflow-hidden shadow-xl transform transition-all mt-40 sm:align-middle sm:max-w-lg sm:w-72">
+                         <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                              <form class="add-item-form">
+                                   <input type="text" placeholder="description" class="border-2 rounded-md text-gray-600 font-medium border-gray-500 text-sm p-1 focus:outline-none">
+                              </form>
+                         </div>
+
+                         <div class="pb-3 text-base text-gray-600">
+                              <button class="submit-item-button mr-2 focus:outline-none" type="submit">
+                                   <i class="fas fa-check"></i>
+                              </button>
+
+                              <button class="cancel-item-button ml-2 focus:outline-none" type="button">
+                                   <i class="fas fa-times"></i>
+                              </button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div id="footer" class="hidden lg:block lg:w-4/12 bg-gray-50 h-screen p-10">
+               <div class="md:fixed">
+                    <h2 class="font-semibold text-lg text-gray-600 mb-3">Contact</h2>
+
+                    <ul class="mb-4">
+                         <li class="inline-block text-gray-600 text-xl pr-3 cursor-pointer hover:text-gray-500">
+                              <i class="fab fa-facebook"></i>
+                         </li>
+
+                         <li class="inline-block text-gray-600 text-xl pr-3 cursor-pointer hover:text-gray-500">
+                              <i class="fab fa-twitter"></i>
+                         </li>
+
+                         <li class="inline-block text-gray-600 text-xl pr-3 cursor-pointer hover:text-gray-500">
+                              <i class="fab fa-github"></i>
+                         </li>
+                    </ul>
+
+                    <p class="text-sm text-gray-600">Copyright &copy; 2020 Naing Linn Khant</p>
+               </div>
+          </div>
+     </div>
+     
+     <script type="text/javascript">
+          function toggleNavbar(collapseID) {
+               document.getElementById(collapseID).classList.toggle("hidden");
+               document.getElementById(collapseID).classList.toggle("bg-white");
+               document.getElementById(collapseID).classList.toggle("m-2");
+               document.getElementById(collapseID).classList.toggle("py-3");
+               document.getElementById(collapseID).classList.toggle("px-6");
+          }
+     </script>
+
+     <script src="oop.js"></script>
+</body>
+</html>

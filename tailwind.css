@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+     .side-nav {
+          @apply md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden md:shadow-xl shadow-md bg-white flex flex-wrap items-center justify-between relative md:w-52 lg:w-64 xl:w-80 z-10 py-4 px-6;
+     }
+
+     .active {
+          @apply text-yellow-400 !important;
+     }
+
+     .section-container {
+          @apply md:ml-52 lg:ml-64 xl:ml-80 p-10 md:w-10/12 lg:w-8/12 text-gray-700;
+     }
+}
